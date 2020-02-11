@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+}
+
 body {
   text-align: center;
   font-family: "Roboto", monospace;
@@ -21,8 +25,15 @@ h2 {
 }
 
 #menu {
-  background-color: #a167c9;
-  padding: 15px 15px 15px 15px;
+  background-color: #b666d2;
+  padding-left: 25%;
+  padding-right: 25%;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #footer {
@@ -31,4 +42,20 @@ h2 {
 
 #page-title {
   text-align: center;
+}
+
+.link-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  line-height: 40px;
+  width: 150px;
+}
+.link-wrapper:hover { background-color: red;}
+
+.menu-link {
+  color: black;
+  text-decoration: none;
 }
