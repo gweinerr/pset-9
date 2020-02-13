@@ -1,6 +1,10 @@
 body {
   text-align: center;
   font-family: "Roboto", monospace;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h1 {
@@ -13,7 +17,7 @@ h1 {
 h2 {
   font-size: 36px;
   font-weight: bold;
-  margin: 2%;
+   margin: 2%;
 }
 
 .container {
@@ -116,6 +120,8 @@ font-size: 20px;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+
+  margin: 0 auto;
 }
 
 #footer {
@@ -135,7 +141,7 @@ font-size: 20px;
   line-height: 40px;
   width: 25%;
 }
-.link-wrapper:hover { background-color: orange;}
+.link-wrapper:hover { background-color: mediumslateblue;}
 
 .menu-link {
   color: black;
