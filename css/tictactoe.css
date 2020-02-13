@@ -99,3 +99,50 @@ font-size: 20px;
 #td2 {
   padding: 15px;
 }
+
+#menu a:hover {
+  color: white;
+}
+
+#header {
+  background-color: violet;
+  height: 40px;
+  width: 100%;
+}
+
+#menu {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#footer {
+  background-color: DodgerBlue;
+}
+
+#page-title {
+  text-align: center;
+}
+
+.link-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  line-height: 40px;
+  width: 25%;
+}
+.link-wrapper:hover { background-color: orange;}
+
+.menu-link {
+  color: black;
+  text-decoration: none;
+
+}
+
+.link-wrapper a {
+  width: 100%;
+}
