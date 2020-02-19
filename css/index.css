@@ -69,6 +69,16 @@ h2 {
   width: 100%;
 }
 
-#arcadeimg {
-  border-color: DodgerBlue;
+img {
+  border: 10px solid DodgerBlue;
+}
+
+#choice {
+  font-size: 30px;
+}
+
+#title {
+  font-size: 40px;
+  font-style: Georgia;
+  text-decoration: bold;
 }
