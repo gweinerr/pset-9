@@ -68,3 +68,7 @@ h2 {
 .link-wrapper a {
   width: 100%;
 }
+
+#arcadeimg {
+  border-color: DodgerBlue;
+}
