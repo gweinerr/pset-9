@@ -28,6 +28,10 @@ h2 {
   margin: 2%;
 }
 
+#choice {
+  font-weight: bold;
+}
+
 #menu a:hover {
   color: white;
 }
