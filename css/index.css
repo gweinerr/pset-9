@@ -4,7 +4,7 @@
 
 body {
   text-align: center;
-  font-family: "Roboto", monospace;
+  font-family: "Georgia", monospace;
 }
 
 h1 {
@@ -68,7 +68,7 @@ h2 {
   width: 100%;
 }
 
-img {
+#arcadeImage {
   border: 10px solid DodgerBlue;
 }
 
@@ -101,6 +101,7 @@ img {
 
 .playchoicebttn a {
   width: 100%;
+  height: 100%;
 }
 
 .playchoicebttn {
@@ -108,10 +109,12 @@ img {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
   line-height: 40px;
   width: 25%;
+  height: 100%;
   background-color: springgreen;
+  text-decoration: none;
+  color: black;
 }
 
 #buttons {
