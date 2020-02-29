@@ -8,6 +8,37 @@ const MARGIN = 0.02 // margin (as a fraction of the shortest screen dimension)
 const COLOR_BACKGROUND = "white";
 const COLOR_FRAME = "DodgerBlue";
 
+//classes
+class Cell {
+  constructor(left, top, w, h, row, col) {
+    this.bot = top + height;
+    this.left = left;
+    this.right = left + w;
+    this.top = top;
+    this.w = w;
+    this.h = h;
+    this.row = row;
+    this.col = col;
+    this.cx = left + w/2;
+    this.cy = top + height/2;
+    this.r = w * GRID_CIRLE/2;
+    this.owner = null;
+  }
+
+  //draw circle or hole
+  draw(ctx) {
+
+    //owner color
+    let color = this.owner == null ? COLOR_BACKGROUND : this.owner ? COLOR_PLAY : COLOR_COMP;
+
+    //draw the circle
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(this.cx, this.cy, this.r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
 //setting up the canvas
 var canv = document.createElement("canvas");
 document.body.appendChild(canv);
@@ -71,7 +102,11 @@ function createGrid() {
   //populate the grid
   for (let i = 0; i < GRID_ROWS; i++) {
     grid[i] = [];
-    for ()
+    for (let j = 0; j < GRID_COLS; j++) {
+      let left =  marginX + j * cell;
+      let top  = marginY + i * cell;
+      grid[i][j] = new Cell(left, top, cell, cell, i, j);
+    }
   }
 }
 
