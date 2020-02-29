@@ -149,3 +149,41 @@ function checkWin(row, col) {
   // if any have four in a row, return a win!
   return connect4(diagL) || connect4(diagR) || connect4(horiz) || connect4(vert);
 }
+
+function connect4(cells = []) {
+  let count = 0, lastOwner = null;
+  let winningCells = [];
+  for (let i = 0; i < cells.length; i++) {
+
+      // no owner, reset the count
+      if (cells[i].owner == null) {
+          count = 0;
+          winningCells = [];
+      }
+
+      // same owner, add to the count
+      else if (cells[i].owner == lastOwner) {
+          count++;
+          winningCells.push(cells[i]);
+      }
+
+      // new owner, new count
+      else {
+          count = 1;
+          winningCells = [];
+          winningCells.push(cells[i]);
+      }
+
+      // set the lastOwner
+      lastOwner = cells[i].owner;
+
+      // four in a row is a win
+      if (count == 4) {
+          for (let cell of winningCells) {
+              cell.winner = true;
+          }
+          return true;
+      }
+  }
+  return false;
+}
