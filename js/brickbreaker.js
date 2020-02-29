@@ -15,8 +15,8 @@ var brickTop = 40;
 var brickOffsetLeft = 30;
 var x = canvas.width/2;
 var y = canvas.height-30;
-var dx = 2;
-var dy = -2;
+var dx = 6;
+var dy = -6;
 var heightofPaddle = 10;
 var widthofPaddle = 100;
 var paddleX = (canvas.width - widthofPaddle)/2;
@@ -163,8 +163,8 @@ function draw() {
       else {
         x = canvas.width/2;
         y = canvas.height-30;
-        dx = 3;
-        dy = -3;
+        dx = 4;
+        dy = -4;
         paddleX = (canvas.width - widthofPaddle) / 2;
       }
     }
