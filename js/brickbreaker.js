@@ -1,10 +1,10 @@
 ///////////////////// VAR VARIABLES /////////////////////////
+let playbttn = document.querySelector('h2');
+playbttn.onclick = draw;
+
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-var playing = false;
-var play = 0;
-var playbttn;
 var radiusofBall = 12;
 var rightPressed = false;
 var leftPressed = false;
@@ -139,10 +139,6 @@ function drawBricks() {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  playbttn = document.createElement('h1');
-  playbttn.id = "playNow";
-  playbttn.innerhtml = "Play";
-  document.body.append(playbttn);
   drawBricks();
   drawBall();
   drawPaddle();

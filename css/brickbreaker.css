@@ -8,8 +8,6 @@ canvas {
   display: block;
   margin: 0 auto;
   margin-top: 40px;
-  z-index: 1;
-  position: absolute;
 }
 
 body {
@@ -81,26 +79,4 @@ h2 {
 
 .link-wrapper a {
   width: 100%;
-}
-
-#playNow {
-  color: black;
-}
-
- #playNow {
-
-	margin-left: 46%;
-	margin-top: 17%;
-	position: absolute;
-
-	z-index: 2;
-	padding: 20px;
-	background-color: lime;
-	color: black;
-	text-align: center;
-}
-
-#playNow  {
-	border-right: 5px gray solid;
-	border-bottom: 5px gray solid;
 }
