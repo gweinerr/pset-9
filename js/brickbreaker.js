@@ -5,19 +5,19 @@ var ballRadius = 10;
 var playing = false;
 var rightPressed = false;
 var leftPressed = false;
-var brickRowCount = 5;
-var brickColumnCount = 3;
-var brickWidth = 75;
+var brickRowCount = 8;
+var brickColumnCount = 5;
+var brickWidth = 70;
 var brickHeight = 20;
 var brickPadding = 10;
-var brickOffsetTop = 30;
+var brickOffsetTop = 40;
 var brickOffsetLeft = 30;
 var x = canvas.width/2;
 var y = canvas.height-30;
 var dx = 2;
 var dy = -2;
 var paddleHeight = 10;
-var paddleWidth = 75;
+var paddleWidth = 100;
 var paddleX = (canvas.width-paddleWidth)/2;
 var score = 0;
 var lives = 2;
@@ -28,9 +28,9 @@ var lives = 2;
  // }
 
 var bricks = [];
-for(var c=0; c < brickColumnCount; c++) {
+for (var c = 0; c < brickColumnCount; c++) {
   bricks[c] = [];
-  for(var r=0; r < brickRowCount; r++) {
+  for(var r = 0; r < brickRowCount; r++) {
     bricks[c][r] = { x: 0, y: 0, status: 1 };
   }
 }
@@ -106,27 +106,36 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        ctx.fillStyle = "springgreen";
+        // ctx.fillStyle = "springgreen";
         ctx.fill();
         ctx.closePath();
+        if (r === 0 || r === 4) {
+          ctx.fillStyle = "violet";
+        } else if (r === 1 || r === 5) {
+          ctx.fillStyle = "springgreen";
+        } else if (r === 2 || r === 6) {
+          ctx.fillStyle = "orange";
+        } else {
+          ctx.fillStyle = "white";
+        }
       }
     }
   }
 }
 function drawScore() {
-  ctx.font = "20px Times New Roman";
+  ctx.font = "30px Times New Roman";
   ctx.fillStyle = "white";
-  ctx.fillText("Score: " +score, 8, 20);
+  ctx.fillText("Score: " +score, 10, 30);
 }
 function drawLives() {
-  ctx.font = "20px Times New Roman";
+  ctx.font = "30px Times New Roman";
   ctx.fillStyle = "white";
-  ctx.fillText("Lives: "+lives, canvas.width - 75, 20);
+  ctx.fillText("Lives: "+lives, canvas.width - 110, 30);
 }
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  initialize();
+  // initialize();
   drawBricks();
   drawBall();
   drawPaddle();
