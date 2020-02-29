@@ -1,9 +1,9 @@
 ///////////////////// VAR VARIABLES /////////////////////////
 let playing = false;
-let playbttn = document.querySelector('h2');
+let playbttn = document.getElementById('playb');
 playbttn.addEventListener("click", function() {
  playing = true;
- draw();
+ return;
 });
 
 var canvas = document.getElementById("myCanvas");
@@ -151,7 +151,7 @@ function draw() {
     drawScore();
     drawLives();
     collisionDetection();
-
+}
 
   if (x + dx > canvas.width - radiusofBall || x + dx < radiusofBall) {
     dx = -dx;
@@ -190,4 +190,5 @@ function draw() {
   y += dy;
   requestAnimationFrame(draw);
 }
-}
+
+draw();
