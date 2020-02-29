@@ -142,13 +142,13 @@ function draw() {
   drawLives();
   collisionDetection();
 
-  if(x + dx > canvas.width - radiusofBall || x + dx < radiusofBall) {
+  if (x + dx > canvas.width - radiusofBall || x + dx < radiusofBall) {
     dx = -dx;
   }
-  if(y + dy < radiusofBall) {
+  if (y + dy < radiusofBall) {
     dy = -dy;
   }
-  else if(y + dy > canvas.height - radiusofBall) {
+  else if (y + dy > canvas.height - radiusofBall) {
     if(x > paddleX && x < paddleX + widthofPaddle) {
       dy = -dy;
     }
@@ -168,10 +168,10 @@ function draw() {
     }
   }
 
-  if(rightPressed && paddleX < canvas.width - widthofPaddle) {
+  if (rightPressed && paddleX < canvas.width - widthofPaddle) {
     paddleX += 7;
   }
-  else if(leftPressed && paddleX > 0) {
+  else if (leftPressed && paddleX > 0) {
     paddleX -= 7;
   }
 
