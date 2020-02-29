@@ -66,12 +66,12 @@ function mouseMoveHandler(e) {
 function drawScore() {
   ctx.font = "30px Times New Roman";
   ctx.fillStyle = "white";
-  ctx.fillText("Score: " +score, 10, 30);
+  ctx.fillText("Score: " +score, canvas.width - 110, 30);
 }
 function drawLives() {
   ctx.font = "30px Times New Roman";
   ctx.fillStyle = "white";
-  ctx.fillText("Lives: "+lives, canvas.width - 110, 30);
+  ctx.fillText("Lives: "+lives, 10, 30);
 }
 function collisionDetection() {
   for(var c = 0; c < brickColumnCount; c++) {
