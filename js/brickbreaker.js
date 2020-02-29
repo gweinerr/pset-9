@@ -1,10 +1,13 @@
 ///////////////////// VAR VARIABLES /////////////////////////
 let playbttn = document.querySelector('h2');
-playbttn.onclick = draw;
+playbttn.addEventListener("click", function() {
+ playing = true;
+});
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
+var playing = false;
 var radiusofBall = 12;
 var rightPressed = false;
 var leftPressed = false;
@@ -138,13 +141,15 @@ function drawBricks() {
 }
 
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBricks();
-  drawBall();
-  drawPaddle();
-  drawScore();
-  drawLives();
-  collisionDetection();
+  if (playing = true) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBricks();
+    drawBall();
+    drawPaddle();
+    drawScore();
+    drawLives();
+    collisionDetection();
+
 
   if (x + dx > canvas.width - radiusofBall || x + dx < radiusofBall) {
     dx = -dx;
@@ -183,5 +188,5 @@ function draw() {
   y += dy;
   requestAnimationFrame(draw);
 }
-
+}
 draw();
