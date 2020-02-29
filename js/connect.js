@@ -237,3 +237,23 @@ function drawBackground() {
   ctx.fillStyle = COLOR_BACKGROUND;
   ctx.fillRect(0, 0, width, height);
 }
+
+
+function drawGrid() {
+
+  // frame and butt
+  let cell = grid[0][0];
+  let fh = cell.h * GRID_ROWS;
+  let fw = cell.w * GRID_COLS;
+  ctx.fillStyle = COLOR_FRAME;
+  ctx.fillRect(cell.left, cell.top, fw, fh);
+  ctx.fillStyle = COLOR_FRAME_BUTT;
+  ctx.fillRect(cell.left - margin / 2, cell.top + fh - margin / 2, fw + margin, margin);
+
+  // cells
+  for (let row of grid) {
+      for (let cell of row) {
+          cell.draw(ctx);
+      }
+  }
+}
