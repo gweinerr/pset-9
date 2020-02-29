@@ -6,8 +6,8 @@ var playing = false;
 var radiusofBall = 10;
 var rightPressed = false;
 var leftPressed = false;
-var brickRowCount = 8;
-var brickColumnCount = 5;
+var brickrowNum = 8;
+var brickColumnNum = 5;
 var brickWidth = 70;
 var brickHeight = 20;
 var brickPadding = 10;
@@ -24,9 +24,9 @@ var score = 0;
 var lives = 2;
 
 var bricks = [];
-for (var c = 0; c < brickColumnCount; c++) {
+for (var c = 0; c < brickColumnNum; c++) {
   bricks[c] = [];
-  for(var r = 0; r < brickRowCount; r++) {
+  for(var r = 0; r < brickrowNum; r++) {
     bricks[c][r] = { x: 0, y: 0, status: 1 };
   }
 }
@@ -75,15 +75,15 @@ function drawLives() {
   ctx.fillText("Lives: "+lives, 10, 30);
 }
 function collisionDetection() {
-  for(var c = 0; c < brickColumnCount; c++) {
-    for(var r = 0; r < brickRowCount; r++) {
+  for(var c = 0; c < brickColumnNum; c++) {
+    for(var r = 0; r < brickrowNum; r++) {
       var b = bricks[c][r];
       if(b.status == 1) {
         if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y + brickHeight) {
           dy = -dy;
           b.status = 0;
           score++;
-          if(score == brickRowCount * brickColumnCount) {
+          if(score == brickrowNum * brickColumnNum) {
             alert("YOU WON, CONGRATS! GO YOU!");
             document.location.reload();
           }
@@ -110,8 +110,8 @@ function drawPaddle() {
 }
 
 function drawBricks() {
-  for (var  c = 0; c < brickColumnCount; c++) {
-    for (var r = 0; r < brickRowCount; r++) {
+  for (var  c = 0; c < brickColumnNum; c++) {
+    for (var r = 0; r < brickrowNum; r++) {
       if (bricks[c][r].status == 1) {
         var brickX = (r * (brickWidth + brickPadding)) + brickOffsetLeft;
         var brickY = (c * (brickHeight + brickPadding)) + brickTop;
