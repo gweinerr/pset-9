@@ -232,3 +232,8 @@ function createGrid() {
       }
   }
 }
+
+function drawBackground() {
+  ctx.fillStyle = COLOR_BACKGROUND;
+  ctx.fillRect(0, 0, width, height);
+}
