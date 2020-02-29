@@ -100,6 +100,7 @@ function drawBall() {
   ctx.fill();
   ctx.closePath();
 }
+
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddleX, canvas.height-heightofPaddle, widthofPaddle, heightofPaddle);
@@ -107,12 +108,13 @@ function drawPaddle() {
   ctx.fill();
   ctx.closePath();
 }
+
 function drawBricks() {
   for (var  c = 0; c < brickColumnCount; c++) {
     for (var r = 0; r < brickRowCount; r++) {
       if (bricks[c][r].status == 1) {
-        var brickX = (r * (brickWidth+brickPadding)) + brickOffsetLeft;
-        var brickY = (c * (brickHeight+brickPadding)) + brickTop;
+        var brickX = (r * (brickWidth + brickPadding)) + brickOffsetLeft;
+        var brickY = (c * (brickHeight + brickPadding)) + brickTop;
         bricks[c][r].x = brickX;
         bricks[c][r].y = brickY;
         ctx.beginPath();
