@@ -3,7 +3,7 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 var playing = false;
-var radiusofBall = 10;
+var radiusofBall = 12;
 var rightPressed = false;
 var leftPressed = false;
 var brickrowNum = 8;
@@ -13,7 +13,7 @@ var brickHeight = 20;
 var brickPadding = 10;
 var brickTop = 40;
 var brickOffsetLeft = 30;
-var x = canvas.width/2;
+var x = canvas.width / 2;
 var y = canvas.height-30;
 var dx = 6;
 var dy = -6;
