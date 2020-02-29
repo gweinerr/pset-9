@@ -106,7 +106,6 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        // ctx.fillStyle = "springgreen";
         ctx.fill();
         ctx.closePath();
         if (r === 0 || r === 4) {
