@@ -6,7 +6,12 @@ const MARGIN = 0.02 // margin (as a fraction of the shortest screen dimension)
 
 //colors
 const COLOR_BACKGROUND = "white";
+const COLOR_COMP = "red";
+const COLOR_COMP_DRK = "darkred";
 const COLOR_FRAME = "DodgerBlue";
+const COLOR_FRAME_BUTT = "royalblue";
+const COLOR_PLAY = "yellow";
+const COLOR_PLAY_DRK = "olive";
 
 //classes
 class Cell {
