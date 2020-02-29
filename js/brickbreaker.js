@@ -1,7 +1,7 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-var ballRadius = 10;
+var radiusofBall = 10;
 var playing = false;
 var rightPressed = false;
 var leftPressed = false;
@@ -10,15 +10,15 @@ var brickColumnCount = 5;
 var brickWidth = 70;
 var brickHeight = 20;
 var brickPadding = 10;
-var brickOffsetTop = 40;
+var brickTop = 40;
 var brickOffsetLeft = 30;
 var x = canvas.width/2;
 var y = canvas.height-30;
 var dx = 2;
 var dy = -2;
-var paddleHeight = 10;
-var paddleWidth = 100;
-var paddleX = (canvas.width-paddleWidth)/2;
+var heightofPaddle = 10;
+var widthofPaddle = 100;
+var paddleX = (canvas.width - widthofPaddle)/2;
 var score = 0;
 var lives = 2;
 
@@ -39,14 +39,7 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
 
-function keyDownHandler(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = true;
-    }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = true;
-    }
-}
+
 
 function keyUpHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
@@ -60,13 +53,13 @@ function keyUpHandler(e) {
 function mouseMoveHandler(e) {
   var relativeX = e.clientX - canvas.offsetLeft;
   if(relativeX > 0 && relativeX < canvas.width) {
-    paddleX = relativeX - paddleWidth/2;
+    paddleX = relativeX - widthofPaddle/2;
   }
 }
 function drawScore() {
   ctx.font = "30px Times New Roman";
   ctx.fillStyle = "white";
-  ctx.fillText("Score: " +score, canvas.width - 110, 30);
+  ctx.fillText("Score: " +score, canvas.width - 120, 30);
 }
 function drawLives() {
   ctx.font = "30px Times New Roman";
@@ -78,7 +71,7 @@ function collisionDetection() {
     for(var r = 0; r < brickRowCount; r++) {
       var b = bricks[c][r];
       if(b.status == 1) {
-        if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+        if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y + brickHeight) {
           dy = -dy;
           b.status = 0;
           score++;
@@ -94,14 +87,14 @@ function collisionDetection() {
 
 function drawBall() {
   ctx.beginPath();
-  ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+  ctx.arc(x, y, radiusofBall, 0, Math.PI * 2);
   ctx.fillStyle = "white";
   ctx.fill();
   ctx.closePath();
 }
 function drawPaddle() {
   ctx.beginPath();
-  ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+  ctx.rect(paddleX, canvas.height-heightofPaddle, widthofPaddle, heightofPaddle);
   ctx.fillStyle = "springgreen";
   ctx.fill();
   ctx.closePath();
@@ -111,7 +104,7 @@ function drawBricks() {
     for (var r = 0; r < brickRowCount; r++) {
       if (bricks[c][r].status == 1) {
         var brickX = (r * (brickWidth+brickPadding)) + brickOffsetLeft;
-        var brickY = (c * (brickHeight+brickPadding)) + brickOffsetTop;
+        var brickY = (c * (brickHeight+brickPadding)) + brickTop;
         bricks[c][r].x = brickX;
         bricks[c][r].y = brickY;
         ctx.beginPath();
@@ -141,14 +134,14 @@ function draw() {
   drawLives();
   collisionDetection();
 
-  if(x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+  if(x + dx > canvas.width - radiusofBall || x + dx < radiusofBall) {
     dx = -dx;
   }
-  if(y + dy < ballRadius) {
+  if(y + dy < radiusofBall) {
     dy = -dy;
   }
-  else if(y + dy > canvas.height - ballRadius) {
-    if(x > paddleX && x < paddleX + paddleWidth) {
+  else if(y + dy > canvas.height - radiusofBall) {
+    if(x > paddleX && x < paddleX + widthofPaddle) {
       dy = -dy;
     }
     else {
@@ -162,12 +155,12 @@ function draw() {
         y = canvas.height-30;
         dx = 3;
         dy = -3;
-        paddleX = (canvas.width - paddleWidth)/2;
+        paddleX = (canvas.width - widthofPaddle) / 2;
       }
     }
   }
 
-  if(rightPressed && paddleX < canvas.width-paddleWidth) {
+  if(rightPressed && paddleX < canvas.width - widthofPaddle) {
     paddleX += 7;
   }
   else if(leftPressed && paddleX > 0) {
