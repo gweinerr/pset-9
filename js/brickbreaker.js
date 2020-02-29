@@ -141,7 +141,7 @@ function drawBricks() {
 }
 
 function draw() {
-  if (playing = true) {
+  if (playing === true) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBricks();
     drawBall();
