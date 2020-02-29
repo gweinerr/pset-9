@@ -2,8 +2,8 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-var radiusofBall = 10;
 var playing = false;
+var radiusofBall = 10;
 var rightPressed = false;
 var leftPressed = false;
 var brickRowCount = 8;
@@ -22,11 +22,6 @@ var widthofPaddle = 100;
 var paddleX = (canvas.width - widthofPaddle)/2;
 var score = 0;
 var lives = 2;
-
- // function initialize() {
- //   startbttn.style.display = 'none';
- //
- // }
 
 var bricks = [];
 for (var c = 0; c < brickColumnCount; c++) {
