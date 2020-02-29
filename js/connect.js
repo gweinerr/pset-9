@@ -201,3 +201,34 @@ function click(ev) {
 
   selectCell();
 }
+
+function createGrid() {
+  grid = [];
+
+  // set up cell size and margins
+  let cell, marginX, marginY;
+
+  // portrait
+  if ((width - margin * 2) * GRID_ROWS / GRID_COLS < height - margin * 2) {
+      cell = (width - margin * 2) / GRID_COLS;
+      marginX = margin;
+      marginY = (height - cell * GRID_ROWS) / 2;
+  }
+
+  // landscape
+  else {
+      cell = (height - margin * 2) / GRID_ROWS;
+      marginX = (width - cell * GRID_COLS) / 2;
+      marginY = margin;
+  }
+
+  // populate the grid
+  for (let i = 0; i < GRID_ROWS; i++) {
+      grid[i] = [];
+      for (let j = 0; j < GRID_COLS; j++) {
+          let left = marginX + j * cell;
+          let top = marginY + i * cell;
+          grid[i][j] = new Cell(left, top, cell, cell, i, j);
+      }
+  }
+}
