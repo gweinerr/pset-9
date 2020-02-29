@@ -3,6 +3,8 @@
 }
 
 body {
+  margin: 0;
+  overflow: hidden;
   text-align: center;
   font-family: "Roboto", monospace;
 }
@@ -67,4 +69,8 @@ h2 {
 
 .link-wrapper a {
   width: 100%;
+}
+
+canvas {
+  display: block;
 }
