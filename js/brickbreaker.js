@@ -134,7 +134,6 @@ function drawLives() {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // initialize();
   drawBricks();
   drawBall();
   drawPaddle();
