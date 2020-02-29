@@ -187,3 +187,17 @@ function connect4(cells = []) {
   }
   return false;
 }
+
+function click(ev) {
+
+  if (gameOver) {
+      newGame();
+      return;
+  }
+
+  if (!playersTurn) {
+      return;
+  }
+
+  selectCell();
+}
