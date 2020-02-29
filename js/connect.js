@@ -238,7 +238,6 @@ function drawBackground() {
   ctx.fillRect(0, 0, width, height);
 }
 
-
 function drawGrid() {
 
   // frame and butt
@@ -255,5 +254,34 @@ function drawGrid() {
       for (let cell of row) {
           cell.draw(ctx);
       }
+   }
+}
+
+function drawText() {
+  if (!gameOver) {
+      return;
+  }
+
+  // set up text parameters
+  let size = grid[0][0].h;
+  ctx.fillStyle = gameTied ? COLOR_TIE : playersTurn ? COLOR_PLAY : COLOR_COMP;
+  ctx.font = size + "arial";
+  ctx.lineJoin = "round";
+  ctx.lineWidth = size / 10;
+  ctx.strokeStyle = gameTied ? COLOR_TIE_DRK : playersTurn ? COLOR_PLAY_DRK : COLOR_COMP_DRK;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+
+  // draw the text
+  let offset = size * 0.55;
+  let text = gameTied ? TEXT_TIE : playersTurn ? TEXT_PLAY : TEXT_COMP;
+  if (gameTied) {
+      ctx.strokeText(text, width / 2, height / 2);
+      ctx.fillText(text, width / 2, height / 2);
+  } else {
+      ctx.strokeText(text, width / 2, height / 2 - offset);
+      ctx.fillText(text, width / 2, height / 2 - offset);
+      ctx.strokeText(TEXT_WIN, width / 2, height / 2 + offset);
+      ctx.fillText(TEXT_WIN, width / 2, height / 2 + offset);
   }
 }
