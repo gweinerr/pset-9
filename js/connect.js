@@ -356,3 +356,29 @@ function goComputer(delta) {
       cell.highlight = null;
       cell.owner = null;
   }
+
+  // clear the winning cells
+  for (let row of grid) {
+      for (let cell of row) {
+          cell.winner = false;
+      }
+  }
+
+  // randomly select a column in priority order
+  let col;
+  if (options[0].length > 0) {
+      col = options[0][Math.floor(Math.random() * options[0].length)];
+  } else if (options[1].length > 0) {
+      col = options[1][Math.floor(Math.random() * options[1].length)];
+  } else if (options[2].length > 0) {
+      col = options[2][Math.floor(Math.random() * options[2].length)];
+  } else if (options[3].length > 0) {
+      col = options[3][Math.floor(Math.random() * options[3].length)];
+  }
+
+  // highlight the selected cell
+  highlightCell(grid[0][col].cx, grid[0][col].cy);
+
+  // set the delay
+  timeComp = DELAY_COMP;
+}
