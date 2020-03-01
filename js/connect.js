@@ -46,22 +46,16 @@ class Cell {
       return x > this.left && x < this.right && y > this.top && y < this.bot;
   }
 
-  // draw the circle or hole
   draw(ctx) {
-
-  // owner color
   let color = this.owner == null ? COLOR_BACKGROUND : this.owner ? COLOR_PLAY : COLOR_COMP;
 
-  // draw the circle
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(this.cx, this.cy, this.r, 0, Math.PI * 2);
   ctx.fill();
 
-  // draw highlighting
   if (this.winner || this.highlight != null) {
 
-      // color
       color = this.winner ? COLOR_WIN : this.highlight ? COLOR_PLAY : COLOR_COMP;
 
       ctx.lineWidth = this.r / 4;
