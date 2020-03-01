@@ -74,6 +74,7 @@ h2 {
 
 canvas {
   display: block;
+  padding: 0px;
 }
 
 #computer_bttn {

@@ -68,7 +68,7 @@ class Cell {
 }
 
 // set up the canvas and context
-var canv = document.createElement("canvas");
+var canv = document.getElementById("canvas");
 document.body.appendChild(canv);
 var ctx = canv.getContext("2d");
 
