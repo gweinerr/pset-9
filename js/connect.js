@@ -397,3 +397,17 @@ function highlightCell(x, y) {
           }
       }
   }
+
+  if (col == null) {
+    return;
+}
+
+// highlight the first unoccupied cell
+for (let i = GRID_ROWS - 1; i >= 0; i--) {
+    if (grid[i][col].owner == null) {
+        grid[i][col].highlight = playersTurn;
+        return grid[i][col];
+    }
+}
+return null;
+}
