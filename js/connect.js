@@ -434,8 +434,8 @@ if (!gameOver) {
 function setDimensions() {
   height = window.innerHeight;
   width = window.innerWidth;
-  canv.height = height;
-  canv.width = width;
+  canv.height = 428px;
+  canv.width = 528px;
   margin = MARGIN * Math.min(height, width);
   newGame();
 }
