@@ -2,8 +2,6 @@
 canvas {
   background: #eee;
   display: block;
-  margin: 0 auto;
-  margin-top: 40px;
 }
 
 body {
@@ -76,4 +74,9 @@ h2 {
 body {
   overflow: hidden;
   text-align: center;
+  margin: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
 }
