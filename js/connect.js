@@ -431,11 +431,11 @@ if (!gameOver) {
 }
 
 
-// function setDimensions() {
-//   height = window.innerHeight;
-//   width = window.innerWidth;
-//   canv.height = height;
-//   canv.width = width;
-//   margin = MARGIN * Math.min(height, width);
-//   newGame();
-// }
+function setDimensions() {
+  height = window.innerHeight;
+  width = window.innerWidth;
+  canv.height = height;
+  canv.width = width;
+  margin = MARGIN * Math.min(height, width);
+  newGame();
+}
