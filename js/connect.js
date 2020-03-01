@@ -285,3 +285,74 @@ function drawText() {
       ctx.fillText(TEXT_WIN, width / 2, height / 2 + offset);
   }
 }
+
+function goComputer(delta) {
+  if (playersTurn || gameOver) {
+      return;
+  }
+
+  // count down till the computer makes its selection
+  if (timeComp > 0) {
+      timeComp -= delta;
+      if (timeComp <= 0) {
+          selectCell();
+      }
+      return;
+  }
+
+  // set up the options array
+  let options = [];
+  options[0] = []; // computer wins
+  options[1] = []; // block the player from winning
+  options[2] = []; // not important
+  options[3] = []; // give away a win
+
+  // loop through each column
+  let cell;
+  for (let i = 0; i < GRID_COLS; i++) {
+      cell = highlightCell(grid[0][i].cx, grid[0][i].cy);
+
+      // column full, go to the next column
+      if (cell == null) {
+          continue;
+      }
+
+      // first priority, computer wins
+      cell.owner = playersTurn;
+      if (checkWin(cell.row, cell.col)) {
+          options[0].push(i);
+      } else {
+
+          // second priority, block the player
+          cell.owner = !playersTurn;
+          if (checkWin(cell.row, cell.col)) {
+              options[1].push(i);
+          } else {
+              cell.owner = playersTurn;
+
+          // check the cell above
+            if (cell.row > 0) {
+                grid[cell.row - 1][cell.col].owner = !playersTurn;
+
+                // last priority, let player win
+                if (checkWin(cell.row - 1, cell.col)) {
+                    options[3].push(i);
+                }
+
+                // third priority, no significance
+                else {
+                    options[2].push(i);
+                }
+
+                // deselect cell above
+                grid[cell.row - 1][cell.col].owner = null;
+            } else {
+                  options[2].push(i);
+              }
+          }
+      }
+
+      // cancel highlight and selection
+      cell.highlight = null;
+      cell.owner = null;
+  }
