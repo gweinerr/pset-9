@@ -394,3 +394,54 @@ function newGame() {
   gameTied = false;
   createGrid();
 }
+
+function selectCell() {
+  let highlighting = false;
+  OUTER: for (let row of grid) {
+      for (let cell of row) {
+          if (cell.highlight != null) {
+              highlighting = true;
+              cell.highlight = null;
+              cell.owner = playersTurn;
+              if (checkWin(cell.row, cell.col)) {
+                  gameOver = true;
+              }
+              break OUTER;
+          }
+      }
+  }
+
+if (!highlighting) {
+    return;
+}
+
+if (!gameOver) {
+    gameTied = true;
+    OUTER: for (let row of grid) {
+        for (let cell of row) {
+            if (cell.owner == null) {
+                gameTied = false;
+                break OUTER;
+            }
+        }
+    }
+
+  if (gameTied) {
+      gameOver = true;
+  }
+}
+
+  if (!gameOver) {
+      playersTurn = !playersTurn;
+  }
+}
+
+
+function setDimensions() {
+  height = window.innerHeight;
+  width = window.innerWidth;
+  canv.height = height;
+  canv.width = width;
+  margin = MARGIN * Math.min(height, width);
+  newGame();
+}
