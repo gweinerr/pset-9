@@ -4,10 +4,6 @@ canvas {
   display: block;
 }
 
-body {
-  text-align: center;
-  font-family: "Roboto", monospace;
-}
 
 h1 {
   margin: 0 auto;
@@ -79,4 +75,5 @@ body {
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
+  font-family: "Roboto", monospace;
 }
