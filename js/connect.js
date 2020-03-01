@@ -382,3 +382,18 @@ function goComputer(delta) {
   // set the delay
   timeComp = DELAY_COMP;
 }
+
+function highlightCell(x, y) {
+  let col = null;
+  for (let row of grid) {
+      for (let cell of row) {
+
+          // clear existing highlighting
+          cell.highlight = null;
+
+          // get the column
+          if (cell.contains(x, y)) {
+              col = cell.col;
+          }
+      }
+  }
