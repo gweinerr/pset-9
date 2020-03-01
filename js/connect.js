@@ -8,13 +8,13 @@ const MARGIN = 0.02; // margin as a fraction of the shortest screen dimension
 // colors
 const COLOR_BACKGROUND = "white";
 const COLOR_COMP = "red";
-const COLOR_COMP_DRK = "darkred";
+const COLOR_COMP_DARK = "darkred";
 const COLOR_FRAME = "dodgerblue";
-const COLOR_FRAME_BUTT = "royalblue";
+const COLOR_FRAME_AROUND = "royalblue";
 const COLOR_PLAY = "yellow";
-const COLOR_PLAY_DRK = "olive";
+const COLOR_PLAY_DARK = "olive";
 const COLOR_TIE = "darkgrey";
-const COLOR_TIE_DRK = "black";
+const COLOR_TIE_DARK = "black";
 const COLOR_WIN = "black";
 
 // text
@@ -228,7 +228,7 @@ function drawGrid() {
   let fw = cell.w * GRID_COLS;
   ctx.fillStyle = COLOR_FRAME;
   ctx.fillRect(cell.left, cell.top, fw, fh);
-  ctx.fillStyle = COLOR_FRAME_BUTT;
+  ctx.fillStyle = COLOR_FRAME_AROUND;
   ctx.fillRect(cell.left - margin / 2, cell.top + fh - margin / 2, fw + margin, margin);
 
   // cells
@@ -249,11 +249,11 @@ function drawText() {
   ctx.font = size + "arial";
   ctx.lineJoin = "round";
   ctx.lineWidth = size / 10;
-  ctx.strokeStyle = gameTied ? COLOR_TIE_DRK : playersTurn ? COLOR_PLAY_DRK : COLOR_COMP_DRK;
+  ctx.strokeStyle = gameTied ? COLOR_TIE_DARK : playersTurn ? COLOR_PLAY_DARK : COLOR_COMP_DARK;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
 
-  let offset = size * 0.55;
+  let offset = size * 5.55;
   let text = gameTied ? TEXT_TIE : playersTurn ? TEXT_PLAY : TEXT_COMP;
   if (gameTied) {
       ctx.strokeText(text, width / 2, height / 2);
