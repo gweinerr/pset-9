@@ -1,23 +1,27 @@
 
+canvas {
+  background: #eee;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
 body {
-  /* margin: 0; */
-  overflow: hidden;
   text-align: center;
   font-family: "Roboto", monospace;
 }
 
 h1 {
-  /* margin: 0 auto; */
+  margin: 0 auto;
   font-family: "Major Mono Display", monospace;
   font-size: 48px;
-  /* margin: 2%; */
+  margin: 2%;
 }
 
 h2 {
   font-size: 36px;
   font-weight: lighter;
-  /* margin: 2%; */
-  color: "white";
+  margin: 2%;
 }
 
 #menu a:hover {
@@ -37,7 +41,7 @@ h2 {
   align-items: center;
   justify-content: space-around;
 
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 #footer {
@@ -69,14 +73,7 @@ h2 {
   width: 100%;
 }
 
-canvas {
-  display: block;
-}
-
-#computer_bttn {
-  color: "red";
-}
-
-#player_bttn {
-  color: "yellow";
+body {
+  overflow: hidden;
+  text-align: center;
 }
