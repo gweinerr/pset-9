@@ -20,6 +20,7 @@ h2 {
   font-size: 36px;
   font-weight: lighter;
   margin: 2%;
+  color: "white";
 }
 
 #menu a:hover {
@@ -73,4 +74,12 @@ h2 {
 
 canvas {
   display: block;
+}
+
+#computer_bttn {
+  color: "red";
+}
+
+#player_bttn {
+  color: "yellow";
 }
